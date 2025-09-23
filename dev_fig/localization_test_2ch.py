@@ -24,7 +24,7 @@ except:
 L = psflearninglib()
 L.param = io.param.combine(basefile='config_base',psftype='insitu',channeltype='2ch',sysfile='smart_tirf')
 #%% load psf model
-resfile = r"T:\projects\cells-labeling\Data\DNA PAINT smart\7_22_25\2025-07-22\python\result_2ch\Cell2_Hek293_AlfaEGFR_WT_ALFA15pM_laser100percent--2025-07-22_17-21-221_insitu_zernike_multi.h5"
+resfile = r"/mnt/nas/adapt/projects/cells-labeling/Data/DNA PAINT smart/7_22_25/2025-07-22/python/result_2ch/Cell2_Hek293_AlfaEGFR_WT_ALFA15pM_laser100percent--2025-07-22_17-21-221_insitu_zernike_multi.h5"
 f,p = io.h5.load(resfile) 
 L.param = p
 I_model = np.stack([f.res.channel0.I_model, f.res.channel1.I_model])
@@ -32,7 +32,7 @@ pz = p.pixel_size.z # unit: um
 imgcenter = f.res.imgcenter
 T = np.expand_dims(f.res.T,axis=0)
 #%%
-L.param.datapath = r'T:\projects\cells-labeling\Data\DNA PAINT smart\7_22_25\2025-07-22/'
+L.param.datapath = r'/mnt/nas/adapt/projects/cells-labeling/Data/DNA PAINT smart/7_22_25/2025-07-22/'
 filename = 'Cell2_Hek293_AlfaEGFR_WT_ALFA15pM_laser100percent--2025-07-22_17-21-22'
 L.param.filelist = [L.param.datapath + filename+'.h5']
 daf = h5.File(L.param.filelist[0],'r')
