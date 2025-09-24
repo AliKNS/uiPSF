@@ -20,7 +20,7 @@ except:
     print('Running on CPU')
 
 
-# %%
+# %% load 1 channel dme result for file
 pixelsize = 78 # unit: nm
 std_limit = 0.2
 folder = r'T:\projects\smart-microscope\data\DNA paint ruler\2025-07-15\python\result_1ch/'
@@ -34,7 +34,7 @@ hy_1ch = plt.hist(std[1],bins=np.linspace(0,std_limit,100))
 mask = (std[0]<std_limit) & (std[1]<std_limit)
 mean_1ch = np.mean(std[:,mask],axis=1)*pixelsize
 
-# %%
+# %% load 2 channel dme result for file
 folder = r'T:\projects\smart-microscope\data\focuslock\Nanostage Position while imaging\2025-07-15\python\result_2ch/'
 filename = 'xyDriftTest-noFocusLock-focusAdjustedManually--2025-07-15_21-24-54_loc_2ch_dme'
 resfile = folder+filename+'.h5'
